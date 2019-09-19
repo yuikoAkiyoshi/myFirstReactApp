@@ -11,3 +11,134 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.mainWrapper{
+  background:#f2ec83;
+}
+.subWrapper{
+  background:#ffffff;
+  width:550px;
+  margin:0 auto;
+}
+.title{
+  padding-top: 40px;
+  font-size:36px;
+  text-align: center;
+}
+
+.wrapper{
+  width:500px;
+  margin:0 auto;
+}
+
+/*インプットエリア*/
+.inputArea__container{
+border-radius: 3px;
+padding: 30px;
+margin-top: 70px;
+}
+
+.inputArea__wrapper{
+  display: flex;
+  flex-direction: column;
+  width:300px;
+  margin:0 auto;
+}
+.inputArea__text{
+  font-size: 24px;
+  width: 300px;
+  margin: 0 auto;
+  border-bottom: 1px solid #261c15;
+  padding-bottom: 10px;
+}
+
+.inputItem{
+  margin-top:20px;
+}
+
+.inputTitle{
+  width:150px;
+  display: inline-block;
+}
+
+/*シュミレーションエリア*/
+.simulation__container{
+margin-top:70px;
+text-align: center;
+}
+
+.simulation__btn{
+  padding-right:20px;
+  padding-left:20px;
+  height:85px;
+  line-height:35px;
+  font-size: 18px;
+  border-radius: 3px;
+}
+.simulation__btn::after{
+  content:"";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 7.5px 0 7.5px;
+  border-color: #261c15 transparent transparent transparent;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+/*リザルトエリア*/
+.resultArea__container{
+border-radius: 3px;
+text-align: center;
+padding: 30px;
+margin-top: 70px;
+border:none;
+}
+
+.resultArea__amount{
+  font-size: 36px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/*吹き出し*/
+.kabakichi{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow_box{
+  position:relative;
+  width:180px;
+  height:50px;
+  line-height:50px;
+  background:#F2EC83;
+  padding:10px;
+  text-align:center;
+  color:#261c15;
+  font-size:14px;
+  font-weight:bold;
+  border-radius:10px;
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+}
+.arrow_box:after{
+  border: solid transparent;
+  content:'';
+  height:0;
+  width:0;
+  pointer-events:none;
+  position:absolute;
+  border-color: rgba(242, 236, 131, 0);
+  border-top-width:10px;
+  border-bottom-width:10px;
+  border-left-width:10px;
+  border-right-width:10px;
+  margin-top: -10px;
+  border-left-color:#F2EC83;
+  left:100%;
+  top:50%;
+}
