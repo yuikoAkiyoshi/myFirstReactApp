@@ -92,7 +92,7 @@ const App =() => (<Counter></Counter>)
                   </div>
                 </div>
                 <div className="kabakichi">
-                  <div class='arrow_box'>がんばって貯金しよう！</div>
+                  <div className='arrow_box'>がんばって貯金しよう！</div>
                   <img src={kabakichi} alt='かばきち'></img>
                 </div>
               </div>
