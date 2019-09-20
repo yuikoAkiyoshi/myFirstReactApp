@@ -3,7 +3,6 @@ import './App.css';
 import title from './img/title.png';
 import kabakichi from './img/kabakiti_yoko.png';
 
-
 //関数コンポーネント
 const App =() => (<Counter></Counter>)
 
@@ -14,7 +13,8 @@ const App =() => (<Counter></Counter>)
         age:26,
         income:25,
         savings:700,
-        old:0.7
+        old:0.7,
+        show: false,
       }
     }
     // inputテキストの動的入れ替え処理
@@ -39,15 +39,14 @@ const App =() => (<Counter></Counter>)
     onChangeText4(event) {
       const value = event.target.value;
       this.setState({
-        old: value,
+        old: (Math.round(value*10))/10,
       });
     }
     //button押した時に結果欄を表示
-    onClickShow() {
-      console.log(this.state.age)
-      console.log(this.state.income)
-      console.log(this.state.savings)
-      console.log(this.state.old)
+    onClickShow(event) {
+      this.setState({
+        show:!this.state.toggle
+      });
     }
 
     render(){
@@ -66,15 +65,15 @@ const App =() => (<Counter></Counter>)
                         <input type="number" onChange={event => this.onChangeText1(event)}/>
                       </label>
                       <label className="inputItem">
-                        <span className="inputTitle">手取り月収（万）</span>
+                        <span className="inputTitle">手取り月収<span className="inputTitle--mini">（万円）</span></span>
                         <input type="number" onChange={event => this.onChangeText2(event)} />
                       </label>
                       <label className="inputItem">
-                        <span className="inputTitle">現在貯蓄額（万）</span>
+                        <span className="inputTitle">現在貯蓄額<span className="inputTitle--mini">（万円）</span></span>
                         <input type="number" onChange={event => this.onChangeText3(event)} />
                       </label>
                       <label className="inputItem">
-                        <span className="inputTitle">老後生活水準</span>
+                        <span className="inputTitle">老後生活水準<span className="inputTitle--mini">（倍）</span></span>
                         <input type="number" step="0.1" onChange={event => this.onChangeText4(event)} />
                       </label>
                     </div>
@@ -82,10 +81,10 @@ const App =() => (<Counter></Counter>)
                 </div>
                 <div className="simulation">
                   <div className="simulation__container">
-                    <button　className="simulation__btn" onClick={event => this.onClickShow()}>シュミレーション開始</button>
+                    <button　className="simulation__btn" onClick={ ()=> this.onClickShow()}>シュミレーション開始</button>
                   </div>
                 </div>
-                <div className="resultArea">
+                <div className="resultArea" id={this.state.show ? "resultShow":"resultHide"} >
                   <div className="resultArea__container">
                     <div className="resultArea__text">あなたの月間必要貯蓄額は</div>
                     <Amount amount={(Math.floor(((this.state.old*this.state.income*12 -(this.state.income)*12*0.3-(this.state.savings-1000)/30)/(((65 - this.state.age)/30+this.state.old)*this.state.income*12)*this.state.income)*10))/10} />

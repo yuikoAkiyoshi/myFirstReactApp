@@ -60,6 +60,9 @@ margin-top: 70px;
   width:150px;
   display: inline-block;
 }
+.inputTitle--mini{
+  font-size: 8px;
+}
 
 /*シュミレーションエリア*/
 .simulation__container{
@@ -90,6 +93,17 @@ text-align: center;
 }
 
 /*リザルトエリア*/
+#resultShow{
+  transition:.8s;
+  opacity:1;
+  /* transform:translateY(30px); */
+}
+#resultHide{
+  opacity:0;
+  transition:.8s;
+  /* transform:translateY(30px); */
+}
+
 .resultArea__container{
 border-radius: 3px;
 text-align: center;
@@ -99,7 +113,7 @@ border:none;
 }
 
 .resultArea__amount{
-  font-size: 36px;
+  font-size: 84px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
